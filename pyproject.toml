@@ -1,23 +1,32 @@
-[build-system]
-requires = ['setuptools']
-build-backend = 'setuptools.build_meta'
-
-[project]
-name = 'example_package'
+[tool.poetry]
+name = "radio_telemetry_tracker_drone"
+version = "0.0.0"
+description = "Radio Telemetry Tracker - Drone"
 authors = [
-    {name = 'UCSD Engineers for Exploration', email = 'e4e@ucsd.edu'},
+    "UCSD Engineers for Exploration <e4e@ucsd.edu>",
+    "Nathan Hui <nthui@ucsd.edu>"
 ]
-description = ''
-readme = 'REAME.md'
-requires-python = '>=3.8'
-keywords = []
-license = {file = 'LICENSE'}
-dependencies = [
-]
-dynamic = ['version']
+readme = "README.md"
+repository = 'https://github.com/UCSD-E4E/radio_telemetry_tracker_drone'
 
-[project.scripts]
-ExamplePythonConsoleScript = 'example_package.example_module:exampleEntryPoint'
+[tool.poetry.dependencies]
+python = "^3.12"
+platformdirs = "^4.2.2"
+rctcomms = {git = "https://github.com/UCSD-E4E/radio_collar_tracker_comms.git"}
+pyyaml = "^6.0.1"
+
+[tool.poetry.scripts]
+rct_drone = 'radio_telemetry_tracker_drone.main:main'
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+autopep8 = "^2.3.1"
+pylint = "^3.2.5"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.semantic_release]
 version_variables = ["example_package/__init__.py:__version__"]
