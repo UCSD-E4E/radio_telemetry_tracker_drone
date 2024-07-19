@@ -6,5 +6,6 @@
     "python.linting.pylintEnabled": true,
     "editor.rulers": [
         100
-    ]
+    ],
+    "python.testing.pytestEnabled": true
 }
